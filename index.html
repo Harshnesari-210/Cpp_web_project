@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .login-button {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .login-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 100px -1px rgb(1, 163, 63), 0 4px 6px -2px rgb(1, 163, 63); /* Increased shadow spread */
+        }
+        .chart-container, .chart-container1 {
+            position: relative;
+            height: 50vh;
+            width: 80vw;
+        }
+        .custom-input:focus {
+            outline: none;
+            border-color: rgba(9, 185, 76, 1); /* Custom green border on focus */
+            box-shadow: 0 0 0 2px rgba(9, 185, 76, 0.3); /* Optional: green shadow on focus */
+        }
+        .student-info p {
+            line-height: 1.6; /* Add line spacing for better readability */
+        }
+        .hidden-section {
+            display: none;
+        }
+        body.no-scroll {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-white no-scroll">
+  <div id="login" class="h-[100vh] w-full flex items-center justify-center bg-black border-gray-600 border-solid border-4">
+    <div class="h-[100vh] w-1/2 hidden lg:flex items-center justify-center">
+     <img src="https://via.placeholder.com/500" alt="Login Image" class="h-full w-full object-cover">
+    </div>
+    <div class="h-[100vh] w-full lg:w-1/2 flex flex-col items-center justify-center space-y-10 px-4">
+        <input type="text" id="srn" placeholder="Student SRN" class="custom-input border-green-500 border-2 border-solid p-2 w-full lg:w-3/4 rounded-2xl text-black">
+        <input type="password" id="password" placeholder="Password" class="custom-input border-green-500 border-2 border-solid p-2 w-full lg:w-3/4 rounded-2xl text-black">
+        <button 
+          id="login-button"
+          class="login-button border-white border-2 border-solid p-4 w-full lg:w-1/3 text-white rounded-2xl drop-shadow-md font-bold"
+          style="background-color: rgb(9, 185, 76); box-shadow: 0 4px 80px -1px rgb(1, 163, 63), 0 2px 4px -2px rgb(1, 163, 63); 
+          background-image: url('https://ik.imagekit.io/sheryians/re-imagine/startPageButtonMask_EGD158XZF2.png?updatedAt=1710335245481'); 
+          background-size: cover; background-repeat: no-repeat; background-position: center;">
+          Log in
+        </button>
+    </div>
+  </div>
+
+  <div id="hero" class="hidden-section w-full h-[100vh] flex flex-row items-center justify-center border-4 border-solid border-gray-500">
+    <div class="w-full lg:w-1/2 h-full flex items-center justify-center">
+      <div class="chart-container">
+        <canvas id="barchart"></canvas>
+      </div>
+    </div>
+    <div class="w-full lg:w-1/2 flex flex-col justify-center items-center space-y-24" id="info">
+       <div class="h-48 w-48 rounded-full border-white border-4 border-solid">
+        <img src="https://via.placeholder.com/200" alt="Student Image" class="h-48 w-48 rounded-full ">
+       </div>
+       <div class="h-64 w-80 border-white border-2 border-solid px-4 py-2 student-info flex items-center">
+           <p>
+            Name: Harsh Nesari<br>
+            SRN: 02FE22BCS040<br>
+            Branch: Computer Science<br>
+            Sem: 4th<br>
+            Div: A<br>
+            Roll No: 13<br>
+            Mobile No: 1234567895<br>
+            Parent No: 789445611232<br>
+           </p>
+       </div>
+    </div>
+  </div>
+
+  <div class="hidden-section w-full h-[100vh] flex flex-row justify-center items-center space-y-24 border-4 border-solid border-gray-500">
+    <div class="w-1/2 flex flex-col justify-center px-28">
+         <h1 class="font-bold">Course Name</h1>
+         <br> 
+         <br>
+         <h3>ASR :  Applied Statistics With R</h3>
+         <br>
+         <h3>MC :  Microcontroller</h3>
+         <br>
+         <h3>OOPS :  Object Oriented programming</h3>
+         <br>
+         <h3>POCD :  Principles Of Compiler Design</h3>
+         <br>
+         <h3>OSPP :  Operating System Principles and Programming</h3>
+         <br>
+         <h3>EDA :  Exploratory Data Analysis</h3>
+     </div>
+     <div class="w-1/2">
+      <div class="chart-container1">
+        <canvas id="barchart1"></canvas>
+      </div>
+     </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="chart1.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>
